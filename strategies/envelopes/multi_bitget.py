@@ -26,12 +26,11 @@ async def main():
     tf = "1h"
     size_leverage = 1
     sl = 0.3
-    extra_gain = 0.011 # 1.1% au dessus de la MA
 
     use_long = True
     use_short = False
 
-    params = coin_params.balanced_15m
+    params = coin_params.safe_15m
 
     exchange = PerpBitget(
         public_api=account["public_api"],
