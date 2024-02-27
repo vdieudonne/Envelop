@@ -4,14 +4,14 @@ import sys
 import asyncio
 import ta
 
-#sys.path.append("./Live-Tools-V2")
+sys.path.append("./Live-Tools-V2")
 from secret import ACCOUNTS
-from bitget_perp import PerpBitget
+from utilities.bitget_perp import PerpBitget
 
-import coin_params
+import config.coin_params_15m as coin_params
 import importlib
 
-importlib.reload(coin_params)
+#importlib.reload(coin_params)
 
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -23,14 +23,14 @@ async def main():
     margin_mode = "isolated"  # isolated or crossed
     exchange_leverage = 1
 
-    tf = "1h"
+    tf = "15m" #"1h"
     size_leverage = 1
     sl = 0.3
 
     use_long = True
     use_short = False
 
-    params = coin_params.safe_15m
+    params = coin_params.balanced
 
     exchange = PerpBitget(
         public_api=account["public_api"],
@@ -316,7 +316,7 @@ async def main():
                     )
 
         print(f"Placing {len(tasks_open)} open limit order...")
-        await asyncio.gather(*tasks_open)  # Limit orders when not in positions
+        #await asyncio.gather(*tasks_open)  # Limit orders when not in positions
 
         await exchange.close()
         print(f"--- Execution finished at {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---")

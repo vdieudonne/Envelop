@@ -1,4 +1,4 @@
-safe_15m = {
+safe = {
     "ETH/USDT":{
         "src": "close",
         "ma_base_window": 5,
@@ -6,9 +6,16 @@ safe_15m = {
         "size": 1,
         "margin": 0.009
     },
+     "BTC/USDT":{
+        "src": "close",
+        "ma_base_window": 5,
+        "envelopes": [0.007, 0.013],
+        "size": 0.1,
+        "margin": 0.012
+    },
 }
 
-balanced_15m = {
+balanced = {
     "BTC/USDT":{
         "src": "close",
         "ma_base_window": 5,
