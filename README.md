@@ -2,6 +2,6 @@
 
 ## Set up
 
-> git clone https://github.com/vdieudonne/Live-Tools-V2.git
+> git clone https://github.com/vdieudonne/Envelop.git
 
-> bash Live-Tools-V2/install.sh
+> bash Envelop/install.sh
